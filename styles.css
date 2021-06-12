@@ -74,7 +74,7 @@ body,
 }
 
 .row {
-  margin: 20px;
+  margin: 5px;
   width: 100%;
 }
 
@@ -90,6 +90,23 @@ body,
 
 #list_box:hover {
   box-shadow: 10px 10px 10px rgb(182, 181, 181);
+}
+
+.list_title{
+  width: fit-content;
+  float: left;
+  padding: 0%;
+}
+
+#clear_list{
+  width: fit-content;
+  color: #111;
+  border-color: rgb(135, 216, 248);
+  transition: 0.3s;
+}
+
+#clear_list:hover{
+  background-color: rgb(218, 188, 246);
 }
 
 #table_data {
@@ -115,16 +132,6 @@ body,
   transition: 0.5s;
 }
 
-button {
-  width: relative;
-  height: relative;
-}
-
-label {
-  display: inline-block;
-  width: 80%;
-}
-
 i {
   font-size: xx-large;
 }
@@ -146,8 +153,3 @@ a#delete {
 }
 
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro");
-
-h3 {
-  color: rgb(238, 234, 234);
-  text-align: center;
-}

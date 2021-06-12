@@ -1,6 +1,6 @@
 let D;
 function ReceivenUpdate() {
-  console.log("Updating List...");
+  console.log("List getting updated...");
   let tit = document.getElementById("title").value;
   let desc = document.getElementById("description").value;
   let date_value = document.getElementById("due_date").value;
@@ -11,21 +11,21 @@ function ReceivenUpdate() {
   let Today = Date.parse(new Date());
   let diff = D - Today;
 
-  if (!tit || !desc || str_date.length == 0) {
-    alert("Fill something in the title, description, and due date");
+  if (!tit || str_date.length == 0) {
+    alert("Missing title and due date!");
   } else {
     if (diff <= -86400000) {
       // DESCRIBE: Why you've taken diff to be less than '-86400000'!
       alert("Please enter a valid date!");
     } else if (localStorage.getItem("itemsJson") == null) {
-      itemJsonArray = [];
-      itemJsonArray.push([tit, desc, display_date]);
-      localStorage.setItem("itemsJson", JSON.stringify(itemJsonArray));
+      taskArray = [];
+      taskArray.push([tit, desc, display_date]);
+      localStorage.setItem("itemsJson", JSON.stringify(taskArray));
     } else {
-      itemJsonArrayStr = localStorage.getItem("itemsJson");
-      itemJsonArray = JSON.parse(itemJsonArrayStr);
-      itemJsonArray.push([tit, desc, display_date]);
-      localStorage.setItem("itemsJson", JSON.stringify(itemJsonArray));
+      taskArrayStr = localStorage.getItem("itemsJson");
+      taskArray = JSON.parse(taskArrayStr);
+      taskArray.push([tit, desc, display_date]);
+      localStorage.setItem("itemsJson", JSON.stringify(taskArray));
     }
     SetnUpdate();
   }
@@ -33,16 +33,16 @@ function ReceivenUpdate() {
 
 function SetnUpdate() {
   if (localStorage.getItem("itemsJson") == null) {
-    itemJsonArray = [];
-    localStorage.setItem("itemsJson", JSON.stringify(itemJsonArray));
+    taskArray = [];
+    localStorage.setItem("itemsJson", JSON.stringify(taskArray));
   } else {
-    itemJsonArrayStr = localStorage.getItem("itemsJson");
-    itemJsonArray = JSON.parse(itemJsonArrayStr);
+    taskArrayStr = localStorage.getItem("itemsJson");
+    taskArray = JSON.parse(taskArrayStr);
   }
   // Populate the table:
   let tableBody = document.getElementById("table_body");
   let list = "";
-  itemJsonArray.forEach((element, index) => {
+  taskArray.forEach((element, index) => {
     list += `
                   <tr onclick="view(${index})">
                     <td id="table_data" style="width: auto;">${element[0]}</td>
@@ -59,30 +59,26 @@ function Delete(item) {
   console.log("Deleted", item);
   let blur = document.getElementById("blur");
   let pop_up = document.getElementById("pop-up-window_desc");
-  if (confirm("Are you sure, you want to delete the current item?")) {
-    itemJsonArraystr = localStorage.getItem("itemsJson");
-    itemJsonArray = JSON.parse(itemJsonArraystr);
+  if (confirm("The current task would be deleted permanently!")) {
+    taskArraystr = localStorage.getItem("itemsJson");
+    taskArray = JSON.parse(taskArraystr);
     // Delete the clicked item in the list.
-    itemJsonArray.splice(item, 1);
-    localStorage.setItem("itemsJson", JSON.stringify(itemJsonArray));
+    taskArray.splice(item, 1);
+    localStorage.setItem("itemsJson", JSON.stringify(taskArray));
     SetnUpdate();
     blur.classList.toggle("active");
     pop_up.classList.toggle("active");
   }
 }
 
-function New_list() {
-  if (itemJsonArray.length != 0) {
-    if (
-      confirm(
-        "By creating a new one you will be clearing the current list. Do you want to continue?"
-      )
-    ) {
+function Clear_list() {
+  if (taskArray.length != 0) {
+    if (confirm("The list would be deleted permanently!")) {
       localStorage.clear();
       SetnUpdate();
     }
   } else {
-    alert("New list is already present!");
+    alert("The list is empty!");
   }
 }
 
@@ -97,9 +93,13 @@ function view(item) {
   let blur = document.getElementById("blur");
   blur.classList.toggle("active");
   let pop_up = document.getElementById("pop-up-window_desc");
+  let desc = taskArray[item][1];
+  if(desc.length == 0){
+      desc = "No Description added."
+  }
   pop_up.innerHTML =
     `<h2>Description</h2>` +
-    itemJsonArray[item][1] +
+    desc +
     `<br><a href='#' id="close" onclick='view(${item})'>Close</a>
     <a href='#' id="delete" onclick='Delete(${item})'>Delete</a>`;
   pop_up.classList.toggle("active");
