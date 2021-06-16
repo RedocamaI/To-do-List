@@ -11,6 +11,11 @@ html {
   height: 100vh;
 }
 
+html, body{
+  max-width: 100%;
+  /* overflow:inherit; */
+}
+
 body {
   height: 100%;
   background-color: rgb(225, 246, 246);
@@ -20,6 +25,7 @@ body {
   background-color: rgb(225, 246, 246);
   min-width: 100%;
   height: fit-content;
+  max-height: 100%;
 }
 
 body,
@@ -86,10 +92,12 @@ body,
 #list_box {
   width: 85%;
   transition: 00.3s;
+  padding: 10px;
 }
 
 #list_box:hover {
   box-shadow: 10px 10px 10px rgb(182, 181, 181);
+  padding: 10px;
 }
 
 .list_title{
@@ -103,15 +111,37 @@ body,
   color: #111;
   border-color: rgb(135, 216, 248);
   transition: 0.3s;
+  margin-right: 5%;
 }
 
 #clear_list:hover{
-  background-color: rgb(218, 188, 246);
+  background-color: rgb(134, 201, 240);
 }
 
-#table_data {
+.table_data {
   padding: 3px;
   text-align: left;
+  word-wrap: break-word;
+  font-family: 'Indie Flower';
+  font-size: 120%;
+}
+
+.due_font{
+  font-weight: bold;
+}
+
+.table{
+  margin: 0%;
+}
+
+#items{
+  margin: 0%;
+  width: 100%;
+  padding: 0;
+}
+
+#table_body{
+  font-family: 'Indie Flower';
 }
 
 #pop-up-window_desc {
@@ -119,17 +149,19 @@ body,
   width: 80%;
   height: fit-content;
   padding: 10px;
-  box-shadow: 0m 5px 30px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 0m 5px 30px rgba(0, 0, 0, 0.3); */
   background: #dff3f0;
   visibility: hidden;
   opacity: 0;
   transition: 0.5s;
+  word-wrap: break-word;
 }
 
 #pop-up-window_desc.active {
   visibility: visible;
   opacity: 0.8;
   transition: 0.5s;
+  word-wrap: break-word;
 }
 
 i {

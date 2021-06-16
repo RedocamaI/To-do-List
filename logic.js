@@ -45,8 +45,8 @@ function SetnUpdate() {
   taskArray.forEach((element, index) => {
     list += `
                   <tr onclick="view(${index})">
-                    <td id="table_data" style="width: auto;">${element[0]}</td>
-                    <td id="table_data">${element[2]}</td>
+                    <td class="table_data" style="width: auto;">${element[0]}</td>
+                    <td class="table_data due_font">${element[2]}</td>
                   </tr>`;
   });
   tableBody.innerHTML = list;

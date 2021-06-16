@@ -12,6 +12,14 @@
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
       crossorigin="anonymous"
     />
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
+      rel="stylesheet"
+    />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -87,9 +95,16 @@
       <div class="container my-4" id="list_box">
         <div class="row">
           <i class="list_title col">My TODOs</i>
-          <button type="button" class="btn btn-outline-warning col-2" id="clear_list" onclick="Clear_list()">Clear list</button>
+          <button
+            type="button"
+            class="btn btn-outline-warning col-2"
+            id="clear_list"
+            onclick="Clear_list()"
+          >
+            Clear list
+          </button>
         </div>
-        <div class="container my-4" id="items" style="width: 100%; padding: 0">
+        <div class="container my-4" id="items">
           <table class="table table-hover" style="width: 100%">
             <thead>
               <tr>
@@ -99,8 +114,8 @@
             </thead>
             <tbody id="table_body" style="width: 100%">
               <tr id="todos" onclick="view()">
-                <td id="table_data">Title here!</td>
-                <td>Due on</td>
+                <td class="table_data">Title here!</td>
+                <td class="table_data due_font">Due on</td>
               </tr>
             </tbody>
           </table>
