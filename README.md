@@ -1,19 +1,14 @@
 # To-do-List
 It is implemented in HTML, CSS, and Javascript and can be used daily to keep track of your TODOs.
 
+## You can visit and use the To-Do list below!
+[![Website](https://img.shields.io/badge/-Website-blue)](https://redocamai.github.io/To-do-List/)
+
 ## Description
 Being productive each day plays a vital role in our success. This To-do-List designed to help you with
-your productivity. Its interactive interface will alert you to complete your tasks listed there.
-  ### Why I used HTML, CSS, and Javascript to build this project?
-   * Learn these technologies while using them in a project.
-   * Prepare for the final project of Cs50's Introduction to Computer Science.
-   * Grab a good hold over Javascript.
-  ### Challenges faced
-   * The basic layout of the project was not working as expected. 
-        The container was overflowing the body, in Html leading to unwanted horizontal scroll.
-   * Good logic was required to include the feature of add and delete items in the list. 
-     It also helped me know more about **_Javascript_**.
-   * Maintain the correctness of the code, as it was getting larger.
+your productivity. Its interactive interface will alert you to complete your tasks listed there. The porpose of this project is to learn HTML, CSS, and Javascript. This would also help me in the final project of  [![CS50](https://img.shields.io/badge/-CS50-green)](https://learning.edx.org/course/course-v1:HarvardX+CS50+X/home)'s  Introduction to Computer Science.
+Designing the *basic layout* of the to-do list was **not** an easy task. I learnt how to apply *logic* and give **life** to my code, also as the code was bulky, it was getting even more challenging to keep track of previous steps, as well making progress. This is my first project and I learnt a lot on how to maintain it alongside develop it. But, this is **Not** the **End of the Story**, I'll keep on adding many features that will make it more userfriendly.
+
   ### Features
   * You can add Title, Description, and due date of the task in your TODOs. 
   * TODOs with past due dates **Cannot** be added.
