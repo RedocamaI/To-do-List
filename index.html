@@ -27,38 +27,38 @@
     <title>To-do List</title>
   </head>
   <body>
-    <div class="container largest" id="blur">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">To-do List</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">My list</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About Developer</a>
-              </li>
-            </ul>
-          </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">To-do List</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">My list</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Developer</a>
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
+    <div class="container largest" id="blur">
       <div class="quote">
         <h1>Live in the moment!</h1>
       </div>
 
-      <div class="container my-4" id="describe_box">
+      <div class="mx-4" id="describe_box">
         <form>
           <div class="form-row align-items-center">
             <button
@@ -92,7 +92,7 @@
         </form>
       </div>
 
-      <div class="container my-4" id="list_box">
+      <div class="mx-4" id="list_box">
         <div class="row">
           <i class="list_title col">My TODOs</i>
           <button

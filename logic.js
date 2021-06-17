@@ -98,7 +98,7 @@ function view(item) {
       desc = "No Description added."
   }
   pop_up.innerHTML =
-    `<h2>Description</h2>` +
+    `<h2>Description for task ${item+1}</h2>` +
     desc +
     `<br><a href='#' id="close" onclick='view(${item})'>Close</a>
     <a href='#' id="delete" onclick='Delete(${item})'>Delete</a>`;
