@@ -13,7 +13,14 @@
       crossorigin="anonymous"
     />
 
-    <!-- google font -->
+    <!-- google font: Lato -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- google font: Indie Flower-->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
@@ -61,20 +68,23 @@
       <div class="mx-4" id="describe_box">
         <form>
           <div class="form-row align-items-center">
-            <button
-              type="submit"
-              id="add"
-              class="btn btn-primary my-2 btn_plus"
-            >
-              +
-            </button>
-            <input
-              type="text"
-              class="form-control mb-1"
-              style="width: 40%"
-              id="title"
-              placeholder="Title"
-            />
+            <div class="container" id="flex_box">
+              <input
+                type="text"
+                class="form-control mb-1"
+                style="width: 40%"
+                id="title"
+                placeholder="Title"
+              />
+
+              <button
+                type="submit"
+                id="add"
+                class="btn btn-primary my-2 btn_plus"
+              >
+                +
+              </button>
+            </div>
 
             <textarea
               class="form-control"
@@ -82,6 +92,7 @@
               placeholder="Describe it"
               style="width: auto"
             ></textarea>
+
             <form action="/action_page.php">
               <div id="due">
                 <h5 style="margin-bottom: 0px; width: 50%">Due date</h5>
@@ -95,14 +106,6 @@
       <div class="mx-4" id="list_box">
         <div class="row">
           <i class="list_title col">My TODOs</i>
-          <button
-            type="button"
-            class="btn btn-outline-warning col-2"
-            id="clear_list"
-            onclick="Clear_list()"
-          >
-            Clear list
-          </button>
         </div>
         <div class="container my-4" id="items">
           <table class="table table-hover" style="width: 100%">
@@ -113,13 +116,21 @@
               </tr>
             </thead>
             <tbody id="table_body" style="width: 100%">
-              <tr id="todos" onclick="view()">
+              <tr onclick="view()">
                 <td class="table_data">Title here!</td>
                 <td class="table_data due_font">Due on</td>
               </tr>
             </tbody>
           </table>
         </div>
+        <button
+          type="button"
+          class="btn btn-outline-warning col-2"
+          id="clear_list"
+          onclick="Clear_list()"
+        >
+          Clear list
+        </button>
       </div>
     </div>
 

@@ -13,5 +13,5 @@ Designing the *basic layout* of the to-do list was **not** an easy task. I learn
   * You can add Title, Description, and due date of the task in your TODOs. 
   * TODOs with past due dates **Cannot** be added.
   * A Calendar is present to help you with the due date.
-  * There can be **No Task** without any *title*, *description*, and *due date*.
+  * There can be **No Task** without *title*, and *due date*.
   * A window contains *Description* and *Delete* option for a task, which pops up when clicked on it. Making it easier for the user to read the description for each task. 
