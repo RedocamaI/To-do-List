@@ -27,6 +27,7 @@
       rel="stylesheet"
     />
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.10.2/Sortable.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -95,7 +96,7 @@
 
             <form action="/action_page.php">
               <div id="due">
-                <h5 style="margin-bottom: 0px; width: 50%">Due date</h5>
+                <h5 style="margin-bottom: 0px; width: 50%">Due on</h5>
                 <input type="date" id="due_date" />
               </div>
             </form>
@@ -105,7 +106,13 @@
 
       <div class="mx-4" id="list_box">
         <div class="row">
-          <i class="list_title col">My TODOs</i>
+          <i class="list_title">My TODOs</i>
+          <div class="Dropdown" onclick="view_droptions()">
+            <div class="dot"> </div>
+            <div class="dot"> </div>
+            <div class="dot"> </div>
+          </div>
+          
         </div>
         <div class="container my-4" id="items">
           <table class="table table-hover" style="width: 100%">
@@ -116,24 +123,30 @@
               </tr>
             </thead>
             <tbody id="table_body" style="width: 100%">
-              <tr onclick="view()">
+              <tr onclick="view_desc()">
                 <td class="table_data">Title here!</td>
                 <td class="table_data due_font">Due on</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <button
-          type="button"
-          class="btn btn-outline-warning col-2"
-          id="clear_list"
-          onclick="Clear_list()"
-        >
-          Clear list
-        </button>
       </div>
     </div>
 
+    <!-- Menu that opens -->
+    <div class="container" id="drops">
+      <button type="button" class="btn col-2 droptions" id="clear_list" onclick="SaveNewOrder()">
+        Save list
+      </button>
+      <button type="button" class="btn col-2 droptions" id="clear_list" onclick="Sort()">
+        Sort list
+      </button>
+      <button type="button" class="btn col-2 droptions" id="clear_list" onclick="Clear_list()">
+        Clear list
+      </button>
+    </div>
+
+    <!-- description box that opens for each list item. -->
     <div class="container" id="pop-up-window_desc">
       <h2>Description</h2>
     </div>

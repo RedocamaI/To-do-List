@@ -1,7 +1,13 @@
 var D;
 var Today = Date.parse(new Date());
-var diff;
+var diff, newOrder = false;
 var Todos = [];
+var taskArray = [];
+var listArray = [];
+listArray = JSON.parse(localStorage.getItem("itemsJson"));
+if(!isSorted(listArray)){
+  newOrder = true;
+}
 
 // Updates the taskArray, which is then used to update the list shown in the UI.
 function ReceivenUpdate() {
@@ -51,7 +57,7 @@ function SetnUpdate() {
     el = element;
     ind = index;
     list += `
-                  <tr onclick="view(${index})" id="${index}">
+                  <tr onclick="view_desc(${index})" id="${index}">
                     <td class="table_data" style="width: auto;">${element[0]}</td>
                     <td class="table_data due_font">${element[2]}</td>
                   </tr>`;
@@ -62,7 +68,9 @@ add = document.getElementById("add");
 add.addEventListener("click", ReceivenUpdate);
 add.addEventListener("click", Sort);
 SetnUpdate();
-Sort();
+if(newOrder == false){
+  Sort();
+}
 
 // This function is responsible for deleting a particular TODO from the list.
 function Delete(item) {
@@ -99,8 +107,8 @@ function changeformatt(date) {
   return fd;
 }
 
-// toggle between two classes:
-function view(item) {
+// toggle between two classes to view description of each list item:
+function view_desc(item) {
   let blur = document.getElementById("blur");
   blur.classList.toggle("active");
   let pop_up = document.getElementById("pop-up-window_desc");
@@ -111,7 +119,7 @@ function view(item) {
   pop_up.innerHTML =
     `<h2>Description for task ${item + 1}</h2>` +
     desc +
-    `<br><a href='#' id="close" onclick='view(${item})'>Close</a>
+    `<br><a href='#' id="close" onclick='view_desc(${item})'>Close</a>
     <a href='#' id="delete" onclick='Delete(${item})'>Delete</a>`;
   pop_up.classList.toggle("active");
 }
@@ -144,6 +152,19 @@ function view(item) {
 //   }
 // }
 
+// Check if the taskArray is sorted
+function isSorted(listArray){
+  for (let index = 0; index < taskArray.length-1; index++) {
+    const date1 = listArray[index]/86400000;
+    const date2 = listArray[index+1]/86400000;
+    if(date1>date2){
+      return false;
+    }
+  }
+  return true;
+}
+
+
 // Sorting the TODOs according to their due dates, in ascending order.
 function Sort() {
   taskArray.sort((a, b) => a[3] - b[3]);
@@ -153,11 +174,41 @@ function Sort() {
     el = element;
     ind = index;
     list += `
-                  <tr onclick="view(${index})" id="${index}">
+                  <tr onclick="view_desc(${index})" id="${index}">
                     <td class="table_data" style="width: auto;">${element[0]}</td>
                     <td class="table_data due_font">${element[2]}</td>
                   </tr>`;
-    // Notify(el,ind);
   });
+  localStorage.setItem("itemsJson", null);
+  localStorage.setItem("itemsJson", JSON.stringify(taskArray));
   tableBody.innerHTML = list;
+}
+
+// Drag and drop feature.
+const dragArea = document.querySelector("#table_body");
+new Sortable(dragArea, {
+  animation: 350,
+});
+
+// function to save the current order generated from Drag and drop.
+function SaveNewOrder() {
+  newtaskArray = [];
+  let row_items = document.getElementsByTagName("tr");
+  let l = row_items.length;
+  for (let index = 1; index < l; index++) {
+    let indexOf_taskArray = parseInt(row_items[index].id);
+    newtaskArray.push(taskArray[indexOf_taskArray]);
+  }
+  // update the itemsJson:
+  localStorage.setItem("itemsJson", null);
+  localStorage.setItem("itemsJson", JSON.stringify(newtaskArray));
+  taskArray = [];
+  taskArray = JSON.parse(localStorage.getItem("itemsJson"));
+  newOrder = true;
+}
+
+// toggle between two classes to view description of each list item:
+function view_droptions() {
+  let droptions = document.getElementById("drops");
+  droptions.classList.toggle("active");
 }
