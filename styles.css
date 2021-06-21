@@ -96,6 +96,10 @@ body {
   width: 45%;
 }
 
+input:focus, input:active { 
+  border: none; outline: none; 
+}
+
 .row {
   margin: 5px;
   width: 100%;
@@ -228,7 +232,6 @@ body {
   visibility: visible;
   opacity: 1;
   transition: 0.5s;
-  word-wrap: break-word;
 }
 
 .droptions{
@@ -237,6 +240,7 @@ body {
   margin: 5% 0;
   transition: 0.3s;
   padding: 6%;
+  width: max-content;
 }
 
 .droptions:hover{
