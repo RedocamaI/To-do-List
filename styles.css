@@ -17,45 +17,6 @@
   transform: rotate(180deg);
 }
 
-/* Wavy waves: bottom */
-.custom-shape-divider-bottom-1624356674 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.custom-shape-divider-bottom-1624356674 svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 300px;
-  transform: rotateY(180deg);
-}
-
-.custom-shape-divider-bottom-1624356674 .shape-fill {
-  fill: #FEFFFF;
-}
-
-/** For tablet devices **/
-@media (min-width: 768px) and (max-width: 1023px) {
-  .custom-shape-divider-bottom-1624356674 svg {
-      width: calc(141% + 1.3px);
-      height: 214px;
-  }
-}
-
-/** For mobile devices **/
-@media (max-width: 767px) {
-  .custom-shape-divider-bottom-1624356674 svg {
-      width: calc(142% + 1.3px);
-      height: 155px;
-  }
-}
-/* -----xxxxxxx----- */
-
 html {
   margin: 0%;
   padding: 0%;
@@ -65,7 +26,10 @@ html {
 body {
   position: relative;
   min-height: 100vh;
-  background-color: rgb(57, 215, 255);
+  background-image: url(/images/bgi1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color: rgb(57, 215, 255); */
   margin: 0%;
   padding: 0%;
 }
@@ -109,7 +73,6 @@ body {
 }
 
 .btn_plus {
-  /* float: right; */
   padding: 0 13px;
   border-radius: 50%;
   display: block;
@@ -118,17 +81,8 @@ body {
   margin-bottom: 0%;
   border: none;
   font-size: 30px;
-  background-color: rgb(146, 183, 251);
+  background-color:  rgb(63, 182, 251);
   color: black;
-}
-
-#describe_box {
-  width: 85%;
-  margin: 10px 0;
-  padding: 15px;
-  background-color: rgb(245, 251, 251);
-  border-radius: 0.65rem;
-  box-shadow: 0 0.15rem 1.75rem 0 rgba(189, 189, 192, 0.801);
 }
 
 .btn_plus:hover {
@@ -138,11 +92,20 @@ body {
   color: black;
 }
 
+#describe_box {
+  width: 85%;
+  margin: 10px 0;
+  padding: 15px;
+  background-color: rgb(245, 251, 251);
+  border-radius: 0.65rem;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(0, 0, 0, 0.801);
+}
+
 #due input{
-  background-color: rgb(57, 215, 255);
+  background-color: rgb(63, 182, 251);
   pad: 10%;
   border: none;
-  border-radius: 20%;
+  border-radius: 5%;
   height: 45px;
   width: 45%;
 }
@@ -189,10 +152,11 @@ input:focus, input:active {
 }
 
 #list_box:hover {
-  box-shadow: 0 0.15rem 1.75rem 0 rgba(159, 160, 170, 0.801);
-  border: 1px solid rgb(209, 209, 209);
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(2, 2, 2, 0.801);
+  border: 1px solid rgb(255, 255, 255);
   padding: 10px;
 }
+
 
 .list_title{
   width: 90%;
@@ -272,9 +236,9 @@ input:focus, input:active {
   width: 21%;
   height: fit-content;
   background-color: rgb(241, 251, 251);
-  border: 1px solid rgb(209, 209, 209);
+  border: 1px solid rgb(255, 255, 255);
   border-radius: 0.65rem;
-  box-shadow: 0 0.15rem 1.75rem 0 rgba(189, 189, 192, 0.801);
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(0, 0, 0, 0.801);
   opacity: 0;
   transition: 0.5s;
 }
@@ -321,4 +285,60 @@ a#delete {
   float: right;
 }
 
-@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro");
+/* Wavy style: bottom */
+.custom-shape-divider-bottom-1624356674 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-1624356674 svg {
+  position: relative;
+  display: block;
+  width: calc(150% + 1.3px);
+  height: 200px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1624356674 .shape-fill {
+  fill: #ffffff;
+}
+
+
+/* Media queries */
+/** For mobile devices **/
+@media (max-width: 767px){
+  #list_box {
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(2, 2, 2, 0.801);
+    border: 1px solid rgb(209, 209, 209);
+    padding: 10px;
+  }
+
+  #drops{
+    transform: translate(-5%, -50%);
+    width: 27%;
+  }
+
+  .custom-shape-divider-bottom-1624356674 svg {
+    width: calc(190% + 1.3px);
+    height: 150px;
+  }
+}
+
+/** For tablet devices **/
+@media (min-width: 768px) and (max-width: 1023px){
+  #list_box {
+    background-color: rgb(250, 248, 248);
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(2, 2, 2, 0.801);
+    border: 1px solid rgb(209, 209, 209);
+    padding: 10px;
+  }
+
+  .custom-shape-divider-bottom-1624356674 svg {
+    width: calc(141% + 1.3px);
+    height: 214px;
+  }
+}

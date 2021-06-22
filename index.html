@@ -112,8 +112,8 @@
 
             <form action="/action_page.php">
               <div id="due">
-                <h5 style="margin-bottom: 0px; width: 50%">Due on</h5>
-                <input type="date" id="due_date" />
+                <h5 style="margin-bottom: 0px; width: 50%"><label for="due_date">Due on</label></h5>
+                <input type="date" id="due_date" name="due_date"/>
               </div>
             </form>
           </div>
@@ -125,7 +125,7 @@
           <i class="list_title">My TODOs</i>
           <div class="Dropdown" onclick="view_droptions()">
             <div class="dot"></div>
-            <div class="dot"></div>
+            <div class="dot" id="mid"></div>
             <div class="dot"></div>
           </div>
         </div>

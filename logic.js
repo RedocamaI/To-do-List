@@ -1,10 +1,10 @@
-var D;
+var D, day;
 var Today = Date.parse(new Date());
 var diff,
   newOrder = false,
   alerts = false;
-var Todos = [];
 var taskArray = [];
+var OrgTaskArray = [];
 var listArray = [];
 listArray = JSON.parse(localStorage.getItem("itemsJson"));
 if (!isSorted(listArray)) {
@@ -17,6 +17,7 @@ function ReceivenUpdate() {
   let desc = document.getElementById("description").value;
   let date_value = document.getElementById("due_date").value;
   D = Date.parse(date_value);
+  day = new Date(date_value);
   let str_date = String(date_value);
   let display_date = changeformatt(str_date);
 
@@ -31,12 +32,12 @@ function ReceivenUpdate() {
       alert("Please enter a valid date!");
     } else if (localStorage.getItem("itemsJson") == null) {
       taskArray = [];
-      taskArray.push([tit, desc, display_date, D]);
+      taskArray.push([tit, desc, display_date, D, day]);
       localStorage.setItem("itemsJson", JSON.stringify(taskArray));
     } else {
       taskArrayStr = localStorage.getItem("itemsJson");
       taskArray = JSON.parse(taskArrayStr);
-      taskArray.push([tit, desc, display_date, D]);
+      taskArray.push([tit, desc, display_date, D, day]);
       localStorage.setItem("itemsJson", JSON.stringify(taskArray));
     }
     SetnUpdate();
@@ -64,6 +65,7 @@ function SetnUpdate() {
                     <td class="table_data due_font">${element[2]}</td>
                   </tr>`;
   });
+  OrgTaskArray = taskArray.slice();
   tableBody.innerHTML = list;
 }
 add = document.getElementById("add");
@@ -126,69 +128,72 @@ function view_desc(item) {
   pop_up.classList.toggle("active");
 }
 
-// IMPORTANT...........
-// Currently working on the Alert feature: on a temporary halt due to a bug found in the code!
-// ---------XXXXXXXXX-----------
-
 function Notify() {
   // Alert Feature:
-  if(alerts==false){
+  if (alerts == false) {
     alertOn();
     alerts = true;
-  } else{
+  } else {
     alertOff();
     alerts = false;
   }
 }
 
-function alertOn(){
+function alertOn() {
   let tableBody = document.getElementById("table_body");
+  let today = new Date(Today).getDate();
   let list = "";
   taskArray.forEach((element, index) => {
-    let days_left = Math.round(Math.abs((Today - element[3]) / 86400000));
-    console.log(days_left);
+    let due_day = new Date(element[4]).getDate();
+    let days_left = Math.abs(today - due_day);
+    // console.log(days_left);
     switch (days_left) {
       case 0:
-        console.log("It's Today!");
+        // console.log("It's Today!");
         list += `
                 <tr onclick="view_desc(${index})" id="${index}" style="background-color: #f6705c">
                   <td class="table_data" style="width: auto;">${element[0]}</td>
                   <td class="table_data due_font">${element[2]}</td>
                 </tr>`;
         break;
+
       case 1:
-        console.log("It's Tomorrow!");
+        // console.log("It's Tomorrow!");
         list += `
                 <tr onclick="view_desc(${index})" id="${index}" style="background-color: #ffb970">
                   <td class="table_data" style="width: auto;">${element[0]}</td>
                   <td class="table_data due_font">${element[2]}</td>
                 </tr>`;
-        // Access the inner html of the table row with this index, which here is an 'id'.
         break;
+
       case 2:
-        console.log("It's Day after Tomorrow!");
+        // console.log("It's Day after Tomorrow!");
         list += `
                 <tr onclick="view_desc(${index})" id="${index}" style="background-color: #fff083">
                   <td class="table_data" style="width: auto;">${element[0]}</td>
                   <td class="table_data due_font">${element[2]}</td>
                 </tr>`;
-        // Access the inner html of the table row with this index, which here is an 'id'.
         break;
+
       default:
-        console.log("Just another Day!");
+        // console.log("Just another Day!");
         list += `
                 <tr onclick="view_desc(${index})" id="${index}">
                   <td class="table_data" style="width: auto;">${element[0]}</td>
                   <td class="table_data due_font">${element[2]}</td>
                 </tr>`;
+        break;
     }
+
+    // first itemsJson is initialised to null to avoid appending of the previous taskArray
+    // elements.
     localStorage.setItem("itemsJson", null);
     localStorage.setItem("itemsJson", JSON.stringify(taskArray));
     tableBody.innerHTML = list;
   });
 }
 
-function alertOff(){
+function alertOff() {
   SetnUpdate();
 }
 
@@ -235,19 +240,23 @@ function SaveNewOrder() {
   let row_items = document.getElementsByTagName("tr");
   let l = row_items.length;
   for (let index = 1; index < l; index++) {
-    let indexOf_taskArray = parseInt(row_items[index].id);
-    newtaskArray.push(taskArray[indexOf_taskArray]);
+    let indexOf_OrgTaskArray = parseInt(row_items[index].id);
+    newtaskArray.push(OrgTaskArray[indexOf_OrgTaskArray]);
+    console.log(newtaskArray[index-1]);
   }
   // update the itemsJson:
   localStorage.setItem("itemsJson", null);
   localStorage.setItem("itemsJson", JSON.stringify(newtaskArray));
+  console.log(localStorage.getItem("itemsJson"));
   taskArray = [];
   taskArray = JSON.parse(localStorage.getItem("itemsJson"));
   newOrder = true;
 }
 
 // toggle between two classes to view description of each list item:
+let droptions = document.getElementById("drops");
 function view_droptions() {
-  let droptions = document.getElementById("drops");
   droptions.classList.toggle("active");
 }
+// container = document.getElementsByClassName("container largest");
+// document.container.addEventListener('click', view_droptions());
