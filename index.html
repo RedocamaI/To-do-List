@@ -35,6 +35,22 @@
     <title>To-do List</title>
   </head>
   <body>
+    <!-- Wavy waves: bottom -->
+    <div class="custom-shape-divider-bottom-1624356674">
+      <svg
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+          class="shape-fill"
+        ></path>
+      </svg>
+    </div>
+    <!-- ------xxxx---- -->
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">To-do List</a>
@@ -52,10 +68,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">My list</a>
+              <a class="nav-link navoptions" href="index.html">My list</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About Developer</a>
+              <a class="nav-link navoptions" href="#">About Developer</a>
             </li>
           </ul>
         </div>
@@ -108,11 +124,10 @@
         <div class="row">
           <i class="list_title">My TODOs</i>
           <div class="Dropdown" onclick="view_droptions()">
-            <div class="dot"> </div>
-            <div class="dot"> </div>
-            <div class="dot"> </div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
           </div>
-          
         </div>
         <div class="container my-4" id="items">
           <table class="table table-hover" style="width: 100%">
@@ -135,13 +150,39 @@
 
     <!-- Menu that opens -->
     <div class="container" id="drops">
-      <button type="button" class="btn col-2 droptions" id="clear_list" onclick="SaveNewOrder()">
+      <button
+        type="button"
+        class="btn col-2 droptions"
+        id="clear_list"
+        onclick="SaveNewOrder()"
+      >
         Save list
       </button>
-      <button type="button" class="btn col-2 droptions" id="clear_list" onclick="Sort()">
+      
+      <button
+        type="button"
+        class="btn col-2 droptions"
+        id="clear_list"
+        onclick="Sort()"
+      >
         Sort list
       </button>
-      <button type="button" class="btn col-2 droptions" id="clear_list" onclick="Clear_list()">
+
+      <button
+        type="button"
+        class="btn col-2 droptions"
+        id="clear_list"
+        onclick="Notify()"
+      >
+        Alert me
+      </button>
+
+      <button
+        type="button"
+        class="btn col-2 droptions"
+        id="clear_list"
+        onclick="Clear_list()"
+      >
         Clear list
       </button>
     </div>

@@ -6,21 +6,66 @@
   font-size: 95%;
 }
 
+
+.custom-shape-divider-top-1624355291 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+/* Wavy waves: bottom */
+.custom-shape-divider-bottom-1624356674 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-1624356674 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 300px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1624356674 .shape-fill {
+  fill: #FEFFFF;
+}
+
+/** For tablet devices **/
+@media (min-width: 768px) and (max-width: 1023px) {
+  .custom-shape-divider-bottom-1624356674 svg {
+      width: calc(141% + 1.3px);
+      height: 214px;
+  }
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .custom-shape-divider-bottom-1624356674 svg {
+      width: calc(142% + 1.3px);
+      height: 155px;
+  }
+}
+/* -----xxxxxxx----- */
+
 html {
   margin: 0%;
   padding: 0%;
   min-height: 100vh;
 }
 
-html, body{
-  max-width: 100%;
-}
-
 body {
   position: relative;
-  min-height: 100%;
-  max-height: 150vh;
-  background-color: #fff;
+  min-height: 100vh;
+  background-color: rgb(57, 215, 255);
   margin: 0%;
   padding: 0%;
 }
@@ -41,6 +86,12 @@ body {
 .navbar {
   text-transform: uppercase;
   opacity: 0.8;
+  font-weight: bold;
+}
+
+.navoptions{
+  font-size: 110%;
+  color: #ffffff;
 }
 
 .quote {
@@ -88,7 +139,7 @@ body {
 }
 
 #due input{
-  background-color: rgb(211 227 255);
+  background-color: rgb(57, 215, 255);
   pad: 10%;
   border: none;
   border-radius: 20%;

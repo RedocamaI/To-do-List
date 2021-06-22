@@ -1,11 +1,13 @@
 var D;
 var Today = Date.parse(new Date());
-var diff, newOrder = false;
+var diff,
+  newOrder = false,
+  alerts = false;
 var Todos = [];
 var taskArray = [];
 var listArray = [];
 listArray = JSON.parse(localStorage.getItem("itemsJson"));
-if(!isSorted(listArray)){
+if (!isSorted(listArray)) {
   newOrder = true;
 }
 
@@ -68,7 +70,7 @@ add = document.getElementById("add");
 add.addEventListener("click", ReceivenUpdate);
 add.addEventListener("click", Sort);
 SetnUpdate();
-if(newOrder == false){
+if (newOrder == false) {
   Sort();
 }
 
@@ -128,42 +130,79 @@ function view_desc(item) {
 // Currently working on the Alert feature: on a temporary halt due to a bug found in the code!
 // ---------XXXXXXXXX-----------
 
-// function Notify(element, index) {
-// Alert Feature:
-//   console.log(index);
-//   Alert = document.querySelectorAll("tr");
-//   let days_left = Math.round(Math.abs((Today - element[3]) / 86400000));
-//   console.log(days_left);
-//   switch (days_left) {
-//     case 0:
-//       console.log("It's Today!");
-//       break;
-//     case 1:
-//       console.log("It's Tomorrow!");
-//       console.log(Alert);
-// Access the inner html of the table row with this index, which here is an 'id'.
-//       break;
-//     case 2:
-//       console.log("It's Day after Tomorrow!");
-// Access the inner html of the table row with this index, which here is an 'id'.
-//       break;
-//     default:
-//       console.log("Just another Day!");
-//   }
-// }
+function Notify() {
+  // Alert Feature:
+  if(alerts==false){
+    alertOn();
+    alerts = true;
+  } else{
+    alertOff();
+    alerts = false;
+  }
+}
+
+function alertOn(){
+  let tableBody = document.getElementById("table_body");
+  let list = "";
+  taskArray.forEach((element, index) => {
+    let days_left = Math.round(Math.abs((Today - element[3]) / 86400000));
+    console.log(days_left);
+    switch (days_left) {
+      case 0:
+        console.log("It's Today!");
+        list += `
+                <tr onclick="view_desc(${index})" id="${index}" style="background-color: #f6705c">
+                  <td class="table_data" style="width: auto;">${element[0]}</td>
+                  <td class="table_data due_font">${element[2]}</td>
+                </tr>`;
+        break;
+      case 1:
+        console.log("It's Tomorrow!");
+        list += `
+                <tr onclick="view_desc(${index})" id="${index}" style="background-color: #ffb970">
+                  <td class="table_data" style="width: auto;">${element[0]}</td>
+                  <td class="table_data due_font">${element[2]}</td>
+                </tr>`;
+        // Access the inner html of the table row with this index, which here is an 'id'.
+        break;
+      case 2:
+        console.log("It's Day after Tomorrow!");
+        list += `
+                <tr onclick="view_desc(${index})" id="${index}" style="background-color: #fff083">
+                  <td class="table_data" style="width: auto;">${element[0]}</td>
+                  <td class="table_data due_font">${element[2]}</td>
+                </tr>`;
+        // Access the inner html of the table row with this index, which here is an 'id'.
+        break;
+      default:
+        console.log("Just another Day!");
+        list += `
+                <tr onclick="view_desc(${index})" id="${index}">
+                  <td class="table_data" style="width: auto;">${element[0]}</td>
+                  <td class="table_data due_font">${element[2]}</td>
+                </tr>`;
+    }
+    localStorage.setItem("itemsJson", null);
+    localStorage.setItem("itemsJson", JSON.stringify(taskArray));
+    tableBody.innerHTML = list;
+  });
+}
+
+function alertOff(){
+  SetnUpdate();
+}
 
 // Check if the taskArray is sorted
-function isSorted(listArray){
-  for (let index = 0; index < taskArray.length-1; index++) {
-    const date1 = listArray[index]/86400000;
-    const date2 = listArray[index+1]/86400000;
-    if(date1>date2){
+function isSorted(listArray) {
+  for (let index = 0; index < taskArray.length - 1; index++) {
+    const date1 = listArray[index] / 86400000;
+    const date2 = listArray[index + 1] / 86400000;
+    if (date1 > date2) {
       return false;
     }
   }
   return true;
 }
-
 
 // Sorting the TODOs according to their due dates, in ascending order.
 function Sort() {
