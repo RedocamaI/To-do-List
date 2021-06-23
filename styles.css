@@ -191,6 +191,7 @@ input:focus, input:active {
   margin: 0%;
   width: 100%;
   padding: 0;
+  cursor: grabbing;
 }
 
 #table_body{
@@ -212,7 +213,12 @@ input:focus, input:active {
   opacity: 0;
   transition: 0.5s;
   word-wrap: break-word;
-  background-color: rgb(241, 251, 251);
+  background-image: url('./images/bgi2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x:90%;
+  background-position-y: 100%;
+  /* background-color: rgb(241, 251, 251); */
   border: 1px solid rgb(209, 209, 209);
   border-radius: 0.65rem;
   box-shadow: 0 0.15rem 1.75rem 0 rgba(189, 189, 192, 0.801);
