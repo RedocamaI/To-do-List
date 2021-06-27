@@ -17,7 +17,7 @@
   transform: rotate(180deg);
 }
 
-html {
+html, body {
   margin: 0%;
   padding: 0%;
   min-height: 100vh;
@@ -25,13 +25,9 @@ html {
 
 body {
   position: relative;
-  min-height: 100vh;
-  background-image: url('./images/bgi1.png');
+  background-image: url('../images/bgi1.png');
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-color: rgb(57, 215, 255); */
-  margin: 0%;
-  padding: 0%;
 }
 
 .container.largest {
@@ -51,11 +47,7 @@ body {
   text-transform: uppercase;
   opacity: 0.8;
   font-weight: bold;
-}
-
-.navoptions{
-  font-size: 110%;
-  color: #ffffff;
+  font-size: 120%;
 }
 
 .quote {
@@ -213,7 +205,7 @@ input:focus, input:active {
   opacity: 0;
   transition: 0.5s;
   word-wrap: break-word;
-  background-image: url('./images/bgi2.jpg');
+  background-image: url('../images/bgi2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x:90%;

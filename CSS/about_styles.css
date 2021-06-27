@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    font-size: 95%;
+}
+
+html, body {
+    margin: 0%;
+    padding: 0%;
+    min-height: fit-content;
+}  
+
+body{
+    position: relative;
+    background-image: url('../images/bgi1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.navbar {
+    text-transform: uppercase;
+    opacity: 0.8;
+    font-weight: bold;
+    font-size: 120%;
+}
+
+.row{
+    height: 100%;
+}
+
+.about_image{
+    position: absolute;
+    top: 5%;
+    left: 80%;
+}
+
+img{
+    border-radius: 50%;
+    width:50%; 
+    height:70%;
+}
+
+.container.largest{
+    padding:10px 20px;
+    max-width: 100%;
+    height: 100vh;
+    margin-top: 5%;
+}
+
+.text{
+    color: black;
+    margin-top:4%;
+    margin-left: 5%;
+    font-family: 'Indie Flower';
+    font-size: 400%;
+}
+
+.connect{
+    position: absolute;
+    top: 75%;
+}
+
+.container.About{
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0.65rem;
+    width: 90%;
+}
+.about_dev{
+    align-content: center;
+    vertical-align: middle;
+    font-family:'Indie Flower';
+    word-wrap:break-word;
+    padding: 5%;
+    font-size: 150%;
+}
+
+.reach_me{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    display: flex;
+    border-radius: 0.65rem;
+    margin-top: 0%;
+    height: fit-content;
+    width: 30%;
+    padding: 10px;
+    background-color: #4ea9df;
+}
+
+.social{
+    width: 20%;
+    height: 5%;
+    padding-left: 5%;
+}
+
+.fab{
+    color: azure;
+    font-size: 60px;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px){
+
+    .container.largest{
+        position: relative;
+        margin-top: 10%;
+    }
+
+    .text{
+        color: black;
+        margin-top: 20%;
+        margin-left: 0%;
+        font-family: 'Indie Flower';
+        font-size: 170%;
+    }
+
+    .about_image{
+        position: absolute;
+        top: 5%;
+        left: 60%;
+    }    
+
+    img{
+        width:85%;
+        height:auto;
+    }
+
+    .about_dev{
+        font-size: 110%;
+    }
+    
+    .container.About{
+        top: 60%;
+        transform: translate(-50%, -63%);
+    }
+
+    .connect{
+       position: absolute;
+       top: 72%;
+       left: 2%;
+    }
+
+    .reach_me{
+        top: 88%;
+        left: 35%;
+        width: 60%;
+    }
+
+    .fab{
+        font-size: 30px;
+    }
+}
+  
+  /** For tablet devices **/
+  @media (min-width: 768px) and (max-width: 1023px){
+
+    .container.largest{
+        padding:10px 10px;
+        max-width: 100%;
+        height: 100vh;
+        margin-top: 8%;
+    }
+
+    .about_image{
+        position: absolute;
+        top: -2%;
+        left: 72%;
+    }
+
+    img{
+        width: 70%;
+        height:auto;
+    }
+
+    .connect{
+        position: absolute;
+        top: 75%;
+    }
+
+    .reach_me{
+        top: 80%;
+        left: 55%;
+        width: 40%;
+    }
+
+    .fab{
+        font-size: 40px;
+    }
+}
