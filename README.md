@@ -33,7 +33,7 @@ This To-do list is developed to wipe out those symptoms. Its interactive interfa
 ![GIF](https://media.giphy.com/media/7VAlAPiRfnkMDhMZ54/giphy.gif)
 
 ## Or access the full walk through video below
-[![youtube badge](https://img.shields.io/badge/-Suraj-fde1e1?style=flat&labelColor=red&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=jUg8RWDj4wg)
+[![youtube badge](https://img.shields.io/badge/-To_do_List-fde1e1?style=flat&labelColor=red&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=jUg8RWDj4wg)
 
 # Start contributing to this project
 Being an **open source project**, contributions are always welcome.
