@@ -230,8 +230,8 @@ input:focus, input:active {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(30%, -10%);
-  width: 21%;
+  transform: translate(150%, -20%);
+  width: 10%;
   height: fit-content;
   background-color: rgb(241, 251, 251);
   border: 1px solid rgb(255, 255, 255);
@@ -333,6 +333,11 @@ a#delete {
     box-shadow: 0 0.15rem 1.75rem 0 rgba(2, 2, 2, 0.801);
     border: 1px solid rgb(209, 209, 209);
     padding: 10px;
+  }
+
+  #drops{
+    transform: translate(65%, -55%);
+    width: 15%;
   }
 
   .custom-shape-divider-bottom-1624356674 svg {

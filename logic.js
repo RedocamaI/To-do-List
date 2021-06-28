@@ -5,11 +5,6 @@ var diff,
   alerts = false;
 var taskArray = [];
 var OrgTaskArray = [];
-var listArray = [];
-listArray = JSON.parse(localStorage.getItem("itemsJson"));
-if (!isSorted(listArray)) {
-  newOrder = true;
-}
 
 // Updates the taskArray, which is then used to update the list shown in the UI.
 function ReceivenUpdate() {
@@ -53,7 +48,7 @@ function SetnUpdate() {
     taskArrayStr = localStorage.getItem("itemsJson");
     taskArray = JSON.parse(taskArrayStr);
   }
-  // Populate the table:
+  // Populates the table:
   let tableBody = document.getElementById("table_body");
   let list = "";
   taskArray.forEach((element, index) => {
@@ -128,6 +123,7 @@ function view_desc(item) {
   pop_up.classList.toggle("active");
 }
 
+// toggle between on and off, to alert the user for approaching dues.
 function Notify() {
   // Alert Feature:
   if (alerts == false) {
@@ -139,6 +135,8 @@ function Notify() {
   }
 }
 
+// Alert on method: Fills the field of tasks with approaching dues, i.e either today, tomorrow
+// or day after tomorrow.
 function alertOn() {
   let tableBody = document.getElementById("table_body");
   let today = new Date(Today).getDate();
@@ -197,18 +195,6 @@ function alertOff() {
   SetnUpdate();
 }
 
-// Check if the taskArray is sorted
-function isSorted(listArray) {
-  for (let index = 0; index < taskArray.length - 1; index++) {
-    const date1 = listArray[index] / 86400000;
-    const date2 = listArray[index + 1] / 86400000;
-    if (date1 > date2) {
-      return false;
-    }
-  }
-  return true;
-}
-
 // Sorting the TODOs according to their due dates, in ascending order.
 function Sort() {
   taskArray.sort((a, b) => a[3] - b[3]);
@@ -258,5 +244,3 @@ let droptions = document.getElementById("drops");
 function view_droptions() {
   droptions.classList.toggle("active");
 }
-// container = document.getElementsByClassName("container largest");
-// document.container.addEventListener('click', view_droptions());
