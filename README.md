@@ -3,6 +3,9 @@
 # Visit and use the To-Do list below!
 [![Website](https://img.shields.io/badge/-Website-blue)](https://redocamai.github.io/To-do-List/)
 
+# Version
+![Version](https://img.shields.io/badge/Version-1.0.0-blue)
+
 # Description
 Do you often feel drained of, especially in the mid-day? Do you find yourself missing deadlines? Or do you forget something important, so that people have to chase you to get work done?
 
@@ -46,7 +49,7 @@ Being a **long term open source** project, it's really important to give an over
 * Upcoming features
   * **A mark for complete** feature: You'll be able to mark that task as completed.
 
-  * **Progress tracker**: A progress tracker will be integrated to this project, which will be based on how early the tasks are completed by you.
+  * **Progress tracker**: A progress tracker will be integrated into this project, which will be based on how early from the due date the tasks are completed by you.
 
   * **Login and Signup gateway**: You'll be able to create your own account in To-do List.
   
