@@ -4,7 +4,7 @@
 [![Website](https://img.shields.io/badge/-Website-blue)](https://redocamai.github.io/To-do-List/)
 
 # Version
-![Version](https://img.shields.io/badge/Version-1.0.0-blue)
+![Version](https://img.shields.io/badge/Version-1.0-blue)
 
 # Description
 Do you often feel drained of, especially in the mid-day? Do you find yourself missing deadlines? Or do you forget something important, so that people have to chase you to get work done?
@@ -39,7 +39,7 @@ This To-do list is developed to wipe out those symptoms. Its interactive interfa
 ![GIF](https://media.giphy.com/media/Me4xCyN2pPZYYt993U/giphy.gif)
 
 ## Or access the full walk through video below
-[![youtube badge](https://img.shields.io/badge/-To_do_List-fde1e1?style=flat&labelColor=red&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=jUg8RWDj4wg)
+[![youtube badge](https://img.shields.io/badge/-To_do_List-fde1e1?style=flat&labelColor=red&logo=youtube&logoColor=white)](https://youtu.be/LCh34DR3Fjk)
 
 # What type of project is it?
 This is a **Long term project** i.e the components of this project is under maintanance and multiple versions of the same will be released in future. Pertaining to the **ease of use**, this project is being **constantly upgraded**.
