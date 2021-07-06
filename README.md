@@ -12,7 +12,7 @@ Do you often feel drained of, especially in the mid-day? Do you find yourself mi
 If this is what you feel like, most often, then all of these are the symptoms of NOT having a To-do List.
 This To-do list is developed to wipe out those symptoms. Its interactive interface will alert you for approaching dues, sort, and even prioritize your tasks, as you add them along with the due date.
 
-# Tech
+# Tech Stack
  * **HTML**
  * **CSS**
  * **Boostrap**
